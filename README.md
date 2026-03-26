@@ -12,6 +12,13 @@ Set these variables in local `.env` and in Vercel project settings:
 - `VITE_SUPABASE_PUBLISHABLE_KEY`
 - `VITE_BACKEND_URL` (for example: `https://bookminds-backend.onrender.com`)
 
+## Remote deployment connection
+
+- Frontend deployed URL: `https://book-minds-frontend-cq3p.vercel.app`
+- Backend deployed URL: `https://bookminds-backend.onrender.com`
+
+In Vercel, set `VITE_BACKEND_URL=https://bookminds-backend.onrender.com` so the frontend uses the Render backend in production.
+
 ## How can I edit this code?
 
 **Use your preferred IDE**

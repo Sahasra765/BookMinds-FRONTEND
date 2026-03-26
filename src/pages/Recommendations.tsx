@@ -18,7 +18,9 @@ interface Book {
   cover_url: string | null;
 }
 
-const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/$/, "");
+const BACKEND_URL = (
+  import.meta.env.VITE_BACKEND_URL || "https://bookminds-backend.onrender.com"
+).replace(/\/$/, "");
 
 async function fetchRecommendationsFromBackend(userId: string): Promise<Book[] | null> {
   if (!BACKEND_URL) {
