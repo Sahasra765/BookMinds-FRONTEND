@@ -18,6 +18,52 @@ interface Book {
   cover_url: string | null;
 }
 
+const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/$/, "");
+
+async function fetchRecommendationsFromBackend(userId: string): Promise<Book[] | null> {
+  if (!BACKEND_URL) {
+    return null;
+  }
+
+  const candidatePaths = [
+    "/recommend-books",
+    "/api/recommend-books",
+    "/recommendations",
+    "/api/recommendations",
+  ];
+
+  for (const path of candidatePaths) {
+    try {
+      const response = await fetch(`${BACKEND_URL}${path}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user_id: userId }),
+      });
+
+      if (!response.ok) {
+        continue;
+      }
+
+      const payload = await response.json();
+      if (Array.isArray(payload?.recommendations)) {
+        return payload.recommendations as Book[];
+      }
+      if (Array.isArray(payload)) {
+        return payload as Book[];
+      }
+      if (Array.isArray(payload?.data)) {
+        return payload.data as Book[];
+      }
+    } catch {
+      // Try the next route if this one is unavailable.
+    }
+  }
+
+  throw new Error("Could not fetch recommendations from backend API.");
+}
+
 export default function Recommendations() {
   const { user } = useAuth();
   const { toast } = useToast();
@@ -39,6 +85,12 @@ export default function Recommendations() {
     if (!user) return;
     setLoading(true);
     try {
+      const backendRecommendations = await fetchRecommendationsFromBackend(user.id);
+      if (backendRecommendations) {
+        setBooks(backendRecommendations);
+        return;
+      }
+
       const { data, error } = await supabase.functions.invoke("recommend-books", {
         body: { user_id: user.id },
       });

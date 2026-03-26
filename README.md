@@ -4,6 +4,14 @@
 
 BookMinds is a modern web application that helps users discover and manage their reading journey with personalized book recommendations powered by AI.
 
+## Environment variables
+
+Set these variables in local `.env` and in Vercel project settings:
+
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_PUBLISHABLE_KEY`
+- `VITE_BACKEND_URL` (for example: `https://bookminds-backend.onrender.com`)
+
 ## How can I edit this code?
 
 **Use your preferred IDE**
