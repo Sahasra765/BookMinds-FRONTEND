@@ -1,26 +1,16 @@
-# Welcome to your Lovable project
+# BookMinds - Your Personal Book Recommendation Assistant
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+BookMinds is a modern web application that helps users discover and manage their reading journey with personalized book recommendations powered by AI.
 
 ## How can I edit this code?
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+The project is set up for local development. Make sure you have Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Follow these steps to get started:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
@@ -59,15 +49,21 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- Supabase (Backend & Authentication)
+- React Query
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+You can deploy this project to various platforms. Popular options include:
 
-## Can I connect a custom domain to my Lovable project?
+- Vercel
+- Netlify
+- GitHub Pages
+- Azure Static Web Apps
+- AWS Amplify
 
-Yes, you can!
+Refer to the deployment documentation of your chosen platform for detailed instructions.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Can I connect a custom domain?
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Yes, you can! Most deployment platforms allow you to connect a custom domain. Check your platform's documentation for setup instructions.
